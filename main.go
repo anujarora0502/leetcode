@@ -1,8 +1,18 @@
 package main
 
-import "leetcode/solutions"
-import "fmt"
+import (
+	"fmt"
+	"leetcode/solutions"
+)
 
 func main() {
-	fmt.Println(solutions.NumWaterBottles(15, 4))
+	heightMap := [][]int{
+		{3, 3, 3, 3, 3},
+		{3, 2, 2, 2, 3},
+		{3, 2, 1, 2, 3},
+		{3, 2, 2, 2, 3},
+		{3, 3, 3, 3, 3},
+	}
+
+	fmt.Println(solutions.TrapRainWater(heightMap))
 }
