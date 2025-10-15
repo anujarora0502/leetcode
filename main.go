@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(solutions.ReverseInteger(-123))
+	fmt.Println(solutions.IntToRoman(123))
 }
