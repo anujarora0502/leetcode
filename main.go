@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(solutions.IntToRoman(123))
+	fmt.Println(solutions.SimplifyPath("/hkhjfksdjfdd0000/dfjlksdjf/.././"))
 }
