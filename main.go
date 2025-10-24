@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(solutions.SimplifyPath("/hkhjfksdjfdd0000/dfjlksdjf/.././"))
+	fmt.Println(solutions.IsPalindrome("A man, a plan, a canal: Panama"))
 }
