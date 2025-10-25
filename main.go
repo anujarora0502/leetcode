@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(solutions.IsPalindrome("A man, a plan, a canal: Panama"))
+	fmt.Println(solutions.WordPattern("abba", "dog cat cat dog"))
 }
