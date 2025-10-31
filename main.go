@@ -6,6 +6,11 @@ import (
 )
 
 func main() {
-	nums := []int{5, 4, 6, 2}
-	fmt.Println(solutions.Permute(nums))
+   obj := solutions.Constructor()
+   obj.Push(0)
+	 obj.Push(1)
+	 obj.Push(0)
+	 fmt.Println(obj.GetMin())
+   obj.Pop()
+   fmt.Println(obj.GetMin())
 }
