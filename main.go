@@ -6,11 +6,8 @@ import (
 )
 
 func main() {
-   obj := solutions.Constructor()
-   obj.Push(0)
-	 obj.Push(1)
-	 obj.Push(0)
-	 fmt.Println(obj.GetMin())
-   obj.Pop()
-   fmt.Println(obj.GetMin())
+	root := solutions.TreeNode{Val: 1, Left: nil, Right: nil}
+	root.Left = &solutions.TreeNode{Val: 2, Left: nil, Right: nil}
+	root.Right = &solutions.TreeNode{Val: 3, Left: nil, Right: nil}
+  fmt.Println(solutions.SumNumbers(&root))
 }
