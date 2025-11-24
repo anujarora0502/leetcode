@@ -6,6 +6,8 @@ import (
 )
 
 func main() {
-	s := solutions.ReverseWords("a good   example")
-	fmt.Println(s)
+	arr := []int{2,3,5}
+	target := 8
+
+	fmt.Print(solutions.CombinationSum(arr, target))
 }
