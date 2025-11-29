@@ -6,8 +6,5 @@ import (
 )
 
 func main() {
-	arr := []int{2,3,5}
-	target := 8
-
-	fmt.Print(solutions.CombinationSum(arr, target))
+	fmt.Println(solutions.LetterCombinations("23"))
 }
