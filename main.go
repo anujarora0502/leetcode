@@ -6,44 +6,34 @@ import (
 )
 
 func main() {
+	// 1. Initialize the dictionary
+	obj := solutions.WordConstructor()
 
-	// 1. ["Trie", []]
-	obj := solutions.TrieConstructor()
-	fmt.Println("null // Constructor")
+	// 2. Add words
+	obj.AddWord("at")
+	obj.AddWord("and")
+	obj.AddWord("an")
+	obj.AddWord("add")
 
-	// 2. ["insert", ["ab"]]
-	obj.Insert("ab")
-	fmt.Println("null // insert(\"ab\")")
+	// 3. Perform searches
+	param_1 := obj.Search("a")   // false
+	param_2 := obj.Search(".at") // false
 
-	// 3. ["search", ["abc"]]
-	fmt.Printf("%v // search(\"abc\")\n", obj.Search("abc"))
+	// 4. Add another word and resume search
+	obj.AddWord("bat")
+	param_3 := obj.Search("b.t")  // true
+	param_4 := obj.Search("an.")  // true
+	param_5 := obj.Search("a.d.") // false
+	param_6 := obj.Search("b.")   // false
+	param_7 := obj.Search("a.d")  // true
+	param_8 := obj.Search(".")    // false
 
-	// 4. ["search", ["ab"]]
-	fmt.Printf("%v // search(\"ab\")\n", obj.Search("ab"))
-
-	// 5. ["startsWith", ["abc"]]
-	fmt.Printf("%v // startsWith(\"abc\")\n", obj.StartsWith("abc"))
-
-	// 6. ["startsWith", ["ab"]]
-	fmt.Printf("%v // startsWith(\"ab\")\n", obj.StartsWith("ab"))
-
-	// 7. ["insert", ["ab"]] (Duplicate insert)
-	obj.Insert("ab")
-	fmt.Println("null // insert(\"ab\")")
-
-	// 8. ["search", ["abc"]]
-	fmt.Printf("%v // search(\"abc\")\n", obj.Search("abc"))
-
-	// 9. ["startsWith", ["abc"]]
-	fmt.Printf("%v // startsWith(\"abc\")\n", obj.StartsWith("abc"))
-
-	// 10. ["insert", ["abc"]]
-	obj.Insert("abc")
-	fmt.Println("null // insert(\"abc\")")
-
-	// 11. ["search", ["abc"]]
-	fmt.Printf("%v // search(\"abc\")\n", obj.Search("abc"))
-
-	// 12. ["startsWith", ["abc"]]
-	fmt.Printf("%v // startsWith(\"abc\")\n", obj.StartsWith("abc"))
+	fmt.Println(param_1)
+	fmt.Println(param_2)
+	fmt.Println(param_3)
+	fmt.Println(param_4)
+	fmt.Println(param_5)
+	fmt.Println(param_6)
+	fmt.Println(param_7)
+	fmt.Println(param_8)
 }
