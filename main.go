@@ -1,16 +1,25 @@
 package main
 
-import "leetcode/solutions"
+import (
+	"fmt"
+	"leetcode/solutions"
+)
 
 func main() {
-	grid := [][]int{
-		{-1, -1, -1, -1, -1, -1},
-		{-1, -1, -1, -1, -1, -1},
-		{-1, -1, -1, -1, -1, -1},
-		{-1, 35, -1, -1, 13, -1},
-		{-1, -1, -1, -1, -1, -1},
-		{-1, 15, -1, -1, -1, -1},
+	list := []int{10, 20, 30, 40, 35, 45, 42, 55, 30, 15}
+
+	pq := solutions.Initialize()
+
+	for _, e := range list {
+		pq.Add(e)
 	}
 
-	solutions.SnakesAndLadders(grid)
+	sortedArray := make([]int, 0)
+
+	for pq.Size() != 0 {
+		pq.PrintQueue()
+		sortedArray = append(sortedArray, pq.Remove())
+	}
+
+	fmt.Println("Sorted Array: ", sortedArray)
 }
