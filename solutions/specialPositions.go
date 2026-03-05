@@ -1,3 +1,5 @@
+package solutions
+
 func numSpecial(mat [][]int) int {
     count := 0
     for i := 0; i < len(mat); i++ {
