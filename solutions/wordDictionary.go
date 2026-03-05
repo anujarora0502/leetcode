@@ -1,5 +1,7 @@
 package solutions
 
+import "strings"
+
 type WordDictionary struct {
 	Val      string
 	Children []*WordDictionary
@@ -11,13 +13,13 @@ func WordConstructor() WordDictionary {
 }
 
 func (w WordDictionary) String() string {
-	output := ""
-	output += w.Val + " -- "
+	var output strings.Builder
+	output.WriteString(w.Val + " -- ")
 
 	for _, e := range w.Children {
-		output += e.Val + " "
+		output.WriteString(e.Val + " ")
 	}
-	return output
+	return output.String()
 }
 
 func (this *WordDictionary) AddWord(word string) {
@@ -64,9 +66,9 @@ func searchHelper(word string, wd *WordDictionary, level int) bool {
 		}
 		if stringMatch(word[0:level], e.Val) {
 			result := searchHelper(word, e, level+1)
-			if word[level-1] == '.' && !result{
+			if word[level-1] == '.' && !result {
 				continue
-			}else {
+			} else {
 				return result
 			}
 		}

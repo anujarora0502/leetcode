@@ -3,7 +3,7 @@ package solutions
 import "fmt"
 
 func CanCompleteCircuit(gas []int, cost []int) int {
-	for i := 0; i < len(gas); i++ {
+	for i := range gas {
 		fmt.Println("i ---Start----", i)
 		fuel := gas[i]
 		var j int

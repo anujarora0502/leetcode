@@ -28,14 +28,14 @@ func Construct(grid [][]int) *Node {
 		n := len(grid)
 
 		leftHalf := make([][]int, 0)
-		for i := 0; i < n; i++ {
+		for i := range n {
 			leftHalf = append(leftHalf, make([]int, 0))
 			for j := 0; j < n/2; j++ {
 				leftHalf[i] = append(leftHalf[i], grid[i][j])
 			}
 		}
 		rightHalf := make([][]int, 0)
-		for i := 0; i < n; i++ {
+		for i := range n {
 			rightHalf = append(rightHalf, make([]int, 0))
 			for j := n / 2; j < n; j++ {
 				rightHalf[i] = append(rightHalf[i], grid[i][j])
@@ -56,8 +56,8 @@ func Construct(grid [][]int) *Node {
 }
 
 func isItAllOnes(grid [][]int) bool {
-	for i := 0; i < len(grid); i++ {
-		for j := 0; j < len(grid); j++ {
+	for i := range grid {
+		for j := range grid {
 			if grid[i][j] == 0 {
 				return false
 			}
@@ -67,8 +67,8 @@ func isItAllOnes(grid [][]int) bool {
 }
 
 func isItAllZeros(grid [][]int) bool {
-	for i := 0; i < len(grid); i++ {
-		for j := 0; j < len(grid); j++ {
+	for i := range grid {
+		for j := range grid {
 			if grid[i][j] == 1 {
 				return false
 			}

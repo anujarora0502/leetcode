@@ -3,7 +3,7 @@ package solutions
 func MaxSubarraySumCircular(nums []int) int {
 	maxSum := nums[0]
 
-	for i := 0; i < len(nums); i++ {
+	for i := range nums {
 		j := i
 		var end int
 		if j == 0 {

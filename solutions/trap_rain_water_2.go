@@ -33,16 +33,12 @@ func TrapRainWater(heightMap [][]int) int {
 func makeLeftMax(rows int, cols int, heightMap [][]int) [][]int {
 	leftMax := makeSlice(rows, cols)
 
-	for i := 0; i < rows; i++ {
-		for j := 0; j < cols; j++ {
+	for i := range rows {
+		for j := range cols {
 			if j == 0 {
 				leftMax[i][j] = heightMap[i][j]
 			} else {
-				if heightMap[i][j] > leftMax[i][j-1] {
-					leftMax[i][j] = heightMap[i][j]
-				} else {
-					leftMax[i][j] = leftMax[i][j-1]
-				}
+				leftMax[i][j] = max(heightMap[i][j], leftMax[i][j-1])
 			}
 		}
 	}
@@ -53,16 +49,12 @@ func makeLeftMax(rows int, cols int, heightMap [][]int) [][]int {
 func makeRightMax(rows int, cols int, heightMap [][]int) [][]int {
 	rightMax := makeSlice(rows, cols)
 
-	for i := 0; i < rows; i++ {
+	for i := range rows {
 		for j := cols - 1; j >= 0; j-- {
 			if j == cols-1 {
 				rightMax[i][j] = heightMap[i][j]
 			} else {
-				if heightMap[i][j] > rightMax[i][j+1] {
-					rightMax[i][j] = heightMap[i][j]
-				} else {
-					rightMax[i][j] = rightMax[i][j+1]
-				}
+				rightMax[i][j] = max(heightMap[i][j], rightMax[i][j+1])
 			}
 		}
 	}
@@ -73,16 +65,12 @@ func makeRightMax(rows int, cols int, heightMap [][]int) [][]int {
 func makeTopMax(rows int, cols int, heightMap [][]int) [][]int {
 	topMax := makeSlice(rows, cols)
 
-	for i := 0; i < rows; i++ {
-		for j := 0; j < cols; j++ {
+	for i := range rows {
+		for j := range cols {
 			if i == 0 {
 				topMax[i][j] = heightMap[i][j]
 			} else {
-				if heightMap[i][j] > topMax[i-1][j] {
-					topMax[i][j] = heightMap[i][j]
-				} else {
-					topMax[i][j] = topMax[i-1][j]
-				}
+				topMax[i][j] = max(heightMap[i][j], topMax[i-1][j])
 			}
 		}
 	}
@@ -98,11 +86,7 @@ func makeBottomMax(rows int, cols int, heightMap [][]int) [][]int {
 			if i == rows-1 {
 				bottomMax[i][j] = heightMap[i][j]
 			} else {
-				if heightMap[i][j] > bottomMax[i+1][j] {
-					bottomMax[i][j] = heightMap[i][j]
-				} else {
-					bottomMax[i][j] = bottomMax[i+1][j]
-				}
+				bottomMax[i][j] = max(heightMap[i][j], bottomMax[i+1][j])
 			}
 		}
 	}
